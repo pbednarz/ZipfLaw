@@ -1,7 +1,7 @@
-/**
- * Created by pbednarz on 22/05/15.
+package pl.pbednarz.systemyrozproszone; /**
+ * @author Piotr Bednarz
+ * @date 25.05.2015
  */
-
 import com.google.common.collect.Multiset;
 
 import javax.swing.table.AbstractTableModel;

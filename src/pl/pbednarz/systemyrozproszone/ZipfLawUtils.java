@@ -1,16 +1,14 @@
-/**
- * Created by pbednarz on 22/05/15.
+package pl.pbednarz.systemyrozproszone; /**
+ * @author Piotr Bednarz
+ * @date 25.05.2015
  */
-
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -45,5 +43,18 @@ public class ZipfLawUtils {
         }
 
         return list;
+    }
+
+    public static void writeToFile(File file, List<Multiset.Entry> list) throws IOException {
+        BufferedWriter outputWriter = null;
+        outputWriter = new BufferedWriter(new FileWriter(file));
+        for (int i = 0; i < list.size(); i++) {
+            outputWriter.write(String.format("%d\t%d", i++, list.get(i).getCount()));
+            if (i != list.size() - 1) {
+                outputWriter.newLine();
+            }
+        }
+        outputWriter.flush();
+        outputWriter.close();
     }
 }
