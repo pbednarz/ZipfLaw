@@ -49,7 +49,8 @@ public class ZipfLawUtils {
         BufferedWriter outputWriter = null;
         outputWriter = new BufferedWriter(new FileWriter(file));
         for (int i = 0; i < list.size(); i++) {
-            outputWriter.write(String.format("%d\t%d", i++, list.get(i).getCount()));
+            Multiset.Entry entry = list.get(i);
+            outputWriter.write(String.format("%d\t%s\t%d", i + 1, entry.getElement(), entry.getCount()));
             if (i != list.size() - 1) {
                 outputWriter.newLine();
             }

@@ -38,4 +38,18 @@ public class ZipfTableModel extends AbstractTableModel {
         }
         return null;
     }
+
+    @Override
+    public String getColumnName(int column) {
+        switch (column) {
+            case 0:
+                return "Rank";
+            case 1:
+                return "Word";
+            case 2:
+                return "Number";
+
+        }
+        return super.getColumnName(column);
+    }
 }
