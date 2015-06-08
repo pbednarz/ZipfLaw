@@ -112,7 +112,7 @@ public class Main extends JPanel
                     }
                     graphPanel.setScores(dane);
                     saveButton.setEnabled(true);
-                    log.setText(file.getName() + " - " + list.size() + " words found.");
+                    log.setText(file.getName() + " - " + list.size() + " distinct words found.");
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
